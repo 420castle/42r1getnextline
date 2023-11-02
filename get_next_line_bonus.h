@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NET_LINE_H
-
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -20,12 +19,9 @@
 #  define BUFFER_SIZE 1000
 # endif
 
-typedef struct	s_list
-{
-	int				fd;
-	char			*str;
-	struct s_list	*next;
-}				t_list;
+# ifndef MAX_FILES
+#  define MAX_FILES 100
+# endif
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *str);

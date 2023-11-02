@@ -31,7 +31,7 @@ char	*ft_read_to_str(int fd, char *str)
 		}
 		buff[rd_bytes] = '\0';
 		str = ft_strjoin(str, buff);
-	}	
+	}
 	free(buff);
 	return (str);
 }
@@ -39,11 +39,10 @@ char	*ft_read_to_str(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	static char	*str;
-    char		*line;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);	
-
+		return (0);
 	str = ft_read_to_str(fd, str);
 	if (!str)
 		return (NULL);

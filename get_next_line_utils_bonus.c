@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcofer <marcofer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:46:34 by marcofer          #+#    #+#             */
-/*   Updated: 2023/09/27 16:46:34 by marcofer         ###   ########.fr       */
+/*   Created: 2023/11/02 14:58:21 by marcofer          #+#    #+#             */
+/*   Updated: 2023/11/02 14:58:21 by marcofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(char *str)
 	size_t	i;
 
 	if (!str)
-		return (0);	
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -27,9 +27,9 @@ size_t	ft_strlen(char *str)
 char	*ft_strchr(char *str, int c)
 {
 	if (!str)
-		return(0);	
+		return (0);
 	if (c == '\0')
-		return (str + ft_strlen(str));	
+		return (str + ft_strlen(str));
 	while (*str != '\0')
 	{
 		if (*str == c)
@@ -51,11 +51,13 @@ char	*ft_strjoin(char *str1, char *str2)
 		return (0);
 	i = 0;
 	if (str1)
+	{
 		while (str1[i] != 0)
 		{
 			new_str[i] = str1[i];
 			i++;
 		}
+	}
 	j = 0;
 	while (str2[j] != '\0')
 		new_str[i++] = str2[j++];
@@ -72,11 +74,11 @@ char	*ft_get_line(char *str)
 
 	len = 0;
 	if (!str[len])
-		return (NULL);	
+		return (NULL);
 	while (str[len] != '\0' && str[len] != '\n')
 		len++;
 	if (str[len] == '\n')
-		len++;	
+		len++;
 	line = (char *)malloc(sizeof(char) * (len + 1));
 	if (!line)
 		return (NULL);
@@ -102,11 +104,11 @@ char	*ft_new_str(char *str)
 	if (str[i] == '\0')
 	{
 		free(str);
-		return(NULL);
+		return (NULL);
 	}
 	new = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
 	if (!new)
-		return (NULL);	
+		return (NULL);
 	j = 0;
 	i++;
 	while (str[i])

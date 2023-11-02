@@ -31,23 +31,22 @@ char	*ft_read_to_str(int fd, char *str)
 		}
 		buff[rd_bytes] = '\0';
 		str = ft_strjoin(str, buff);
-	}	
+	}
 	free(buff);
 	return (str);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
-    char		*line;
+	static char	*str[MAX_FILES];
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);	
-
-	str = ft_read_to_str(fd, str);
-	if (!str)
+		return (0);
+	str[fd] = ft_read_to_str(fd, str[fd]);
+	if (!str[fd])
 		return (NULL);
-	line = ft_get_line(str);
-	str = ft_new_str(str);
+	line = ft_get_line(str[fd]);
+	str[fd] = ft_new_str(str[fd]);
 	return (line);
 }
