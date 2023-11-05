@@ -27,6 +27,7 @@ char	*ft_read_to_str(int fd, char *str)
 		if (rd_bytes == -1)
 		{
 			free(buff);
+			free(str);
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
